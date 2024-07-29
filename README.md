@@ -108,6 +108,7 @@ curl --location 'http://127.0.0.1:8080/api/v1/analysis/popular-posts?limit=2'
 Maintaining a hash set in Redis that gets updated in real-time with user activity.
 - Sorted Sets for Popular Posts:
 Using sorted sets to keep track of the most popular posts based on likes, comments, and shares.
+4. On warmup, the app backfills the cache from the database for persistent data in cache.
 
 ## Logs
 ```
