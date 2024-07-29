@@ -101,7 +101,7 @@ curl --location 'http://127.0.0.1:8080/api/v1/analysis/popular-posts?limit=2'
 - p90: 3.471292 ms
 
 ## Optimizations
-1. *Data Ingestion Stream*: All posts requests push the activity data to a kafka topic which can be consumed async.
+1. *Data Ingestion Stream*: All posts requests push the activity data to thier respective kafka topics which can be consumed async.
 2. DB indexing on timestamps, userId and postId.
 3. *Real-Time Queries are optimised using Redis In-Memory Data Structures*:
 - Hash Sets for Active Users:
