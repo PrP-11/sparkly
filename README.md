@@ -135,6 +135,9 @@ Using sorted sets to keep track of the most popular posts based on likes, commen
 2024-07-29 03:40:34 [GIN] 2024/07/28 - 22:10:34 | 200 |     570.458µs |    192.168.65.1 | GET      "/api/v1/analysis/active-users"
 ```
 
+## Coverage
+92.9 %
+
 ## Run Tests
 1. `make tests` - running tests
 2. `make coverage` - command line coverage report
