@@ -7,10 +7,12 @@
 1. Set the value of `MONGODB_URI` in `docker-compose.yml` to the uri shared over email. It's a temporary user's credentials which will expire in a week.
 
 # Setup
-1. `make network`
-2. `make redis`
-3. `make run` - if you get permission denied, try with sudo because it might need permission to create the docker image
-4. `make restart` (optional) - The rest or worker container might exit because the connection with kafka-broker might timeout. This happens if they try to make a connection before kafka-broker is fully functional. You can restart the container manually once zookeeper and broker is up.
+1. Start Docker
+2. `make network` - to create the docker network for the containers to interact with each other.
+3. `make redis` - to start the redis container.
+4. `sudo make run` - It gets the required images, makes the required images and finallys runs the containers. If you get permission denied, try with sudo because it might need permission to create the docker image
+5. `make restart` (optional) - The rest or worker container might exit because the connection with kafka-broker might timeout. This happens if they try to make a connection before kafka-broker is fully functional. You can restart the container manually once zookeeper and broker is up.
+**Note** - There are other intermediate commands as well which makes up the above commands. You can check them out inside the `Makefile`. 
 
 # Endpoints
 1. Log User Login Events
