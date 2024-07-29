@@ -12,6 +12,7 @@
 3. `make redis` - to start the redis container.
 4. `sudo make run` - It gets the required images, makes the required images and finallys runs the containers. If you get permission denied, try with sudo because it might need permission to create the docker image
 5. `make restart` (optional) - The rest or worker container might exit because the connection with kafka-broker might timeout. This happens if they try to make a connection before kafka-broker is fully functional. You can restart the container manually once zookeeper and broker is up.
+
 **Note** - There are other intermediate commands as well which makes up the above commands. You can check them out inside the `Makefile`. 
 
 # Endpoints
