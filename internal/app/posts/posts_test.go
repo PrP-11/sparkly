@@ -46,6 +46,22 @@ func TestServiceTestSuite(t *testing.T) {
 	suite.Run(t, new(serviceTestSuite))
 }
 
+func (suite *serviceTestSuite) TestPushToQueue() {
+	ctx := context.Background()
+
+	activity := pkg.PostInteraction{
+		UserID: "user-1",
+		PostID: "post-1",
+		Action: "like",
+	}
+
+	suite.testServiceDependencies.producerService.
+		EXPECT().PushMessage(ctx, pkg.TopicPostsLogins, activity)
+
+	suite.testService.PushToQueue(ctx, activity)
+
+}
+
 func (suite *serviceTestSuite) TestLog_Successful() {
 	ctx := context.Background()
 

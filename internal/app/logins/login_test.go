@@ -48,6 +48,21 @@ func TestServiceTestSuite(t *testing.T) {
 	suite.Run(t, new(serviceTestSuite))
 }
 
+func (suite *serviceTestSuite) TestPushToQueue() {
+	ctx := context.Background()
+
+	activity := pkg.LoginActivity{
+		UserID: "user-1",
+		Action: "login",
+	}
+
+	suite.testServiceDependencies.producerService.
+		EXPECT().PushMessage(ctx, pkg.TopicLogsLogins, activity)
+
+	suite.testService.PushToQueue(ctx, activity)
+
+}
+
 func (suite *serviceTestSuite) TestLog_Successful() {
 	ctx := context.Background()
 
